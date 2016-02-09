@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UI GRID TEST</title>
+        <link href="node_modules/angular-ui-grid/ui-grid.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
+        <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+
+        <script src="data.js" ></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js" ></script>
+        <script src="https://code.angularjs.org/1.4.9/angular.min.js" ></script>
+        <script src="https://code.angularjs.org/1.4.9/angular-route.js"></script>
+        <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
+        <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+        <script src="node_modules/angular-touch/angular-touch.js"></script>
+        <script src="node_modules/angular-moment/node_modules/moment/moment.js"></script>
+        <script src="node_modules/angular-moment/angular-moment.js"></script>
+        <script src="app.js" ></script>
+  </head>
+  <body>
+    <div class="app" ng-app="myapp" ng-controller="mainController" ng-swipe-right="rightSwipeHandler($event)" ng-swipe-left="leftSwipeHandler($event)">
+        <p class="navigation">
+            <a ui-sref="main">1</a>
+            <a ui-sref="main2">2</a>
+        </p>
+            <div ui-view></div>
+        <!--div ng-controller="myctrl" ng-swipe-right="swipeHandler($event)" ng-swipe-left="swipeHandler($event)">
+        </div-->
+    </div>
+  </body>
+
+</html>
