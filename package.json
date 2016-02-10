@@ -1,14 +1,19 @@
 {
-   "name": "Demo",
-   "version": "1.0.0",
-   "description": "demo project.",
-   "scripts": {
-     "lite": "lite-server --port 10001",
-     "start": "npm run lite"
-   },
-   "author": "",
-   "license": "ISC",
-   "devDependencies": {
-     "lite-server": "^1.3.1"
-   }
+  "name": "Demo",
+  "version": "1.0.0",
+  "description": "demo project.",
+  "scripts": {
+    "lite": "lite-server --port 10001",
+    "start": "npm run lite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^1.3.1"
+  },
+  "dependencies": {
+    "angular-hammer": "^2.1.10",
+    "hammer": "0.0.5",
+    "hammerjs": "^2.0.6"
+  }
 }

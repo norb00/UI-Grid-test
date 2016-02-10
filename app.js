@@ -2,6 +2,7 @@ var myapp = angular.module('myapp', [
             'ngRoute',
             'ngAnimate',
             'ngTouch',
+            'hmTouchEvents',
             'ui.router',
             'ui.grid',
             'ui.grid.treeView',
@@ -33,10 +34,15 @@ var myapp = angular.module('myapp', [
             $state.go('main');
 //            console.log("SWIPE: ", $event);
         }
+
         $scope.leftSwipeHandler = function($event){
             $state.go('main2');
 //            console.log("SWIPE: ", $event);
         }
+
+        $scope.onHammer = function (event) {
+            $scope.eventType = event.type;
+        };
     });
 
     myapp.controller('myctrl', function ($scope) {

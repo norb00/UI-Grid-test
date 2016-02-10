@@ -16,10 +16,19 @@
         <script src="node_modules/angular-touch/angular-touch.js"></script>
         <script src="node_modules/angular-moment/node_modules/moment/moment.js"></script>
         <script src="node_modules/angular-moment/angular-moment.js"></script>
+        <script src="node_modules/hammerjs/hammer.js"></script>
+        <script src="node_modules/angular-hammer/angular.hammer.js"></script>
         <script src="app.js" ></script>
   </head>
   <body>
-    <div class="app" ng-app="myapp" ng-controller="mainController" ng-swipe-right="rightSwipeHandler($event)" ng-swipe-left="leftSwipeHandler($event)">
+    <div class="app" ng-app="myapp" ng-controller="mainController"
+        hm-pan="onHammer"
+        hm-pinch="onHammer"
+        hm-press="onHammer"
+        hm-rotate="onHammer"
+        hm-swipe="onHammer"
+        hm-tap="onHammer"
+        hm-doubletap="onHammer">
         <p class="navigation">
             <a ui-sref="main">1</a>
             <a ui-sref="main2">2</a>
@@ -27,6 +36,7 @@
             <div ui-view></div>
         <!--div ng-controller="myctrl" ng-swipe-right="swipeHandler($event)" ng-swipe-left="swipeHandler($event)">
         </div-->
+        <p>EVENT TYPE: {{ eventType }}</p>
     </div>
   </body>
 
