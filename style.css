@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Feb 9, 2016, 4:40:17 PM
     Author     : Norbert_Bagi
 */
@@ -18,16 +18,36 @@ div.app {
     width: 1024px;
     background: #5c5c5c;
     display: block;
+    position: relative;
 }
 
 p.navigation a {
-    width: 45%;
+    width: 500px;
     background: #66afe9;
     display: inline-block;
-    padding: 5px;
+    margin: 5px;
     text-align: center;
 }
 
-p.navigation:after {
-    clear: both;
+
+h1 {
+    color: #ffffff;
+    clear: left;
+    display: block;
+}
+
+div#p1 {
+    width: 500px;
+    background: #fdfdfd;
+    display: block;
+    float: left;
+    margin: 5px;
+}
+
+div#p2 {
+    width: 500px;
+    background: #d4d4d4;
+    display: block;
+    float: left;
+    margin: 5px;
 }

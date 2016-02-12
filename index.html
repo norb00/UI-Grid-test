@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>UI GRID TEST</title>
         <link href="node_modules/angular-ui-grid/ui-grid.css" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" />
@@ -18,25 +19,34 @@
         <script src="node_modules/angular-moment/angular-moment.js"></script>
         <script src="node_modules/hammerjs/hammer.js"></script>
         <script src="node_modules/angular-hammer/angular.hammer.js"></script>
+        <script src="node_modules/hammerjs/touch-emulator.js"></script>
+        <script>
+            //TouchEmulator();
+        </script>
+
         <script src="app.js" ></script>
   </head>
   <body>
-    <div class="app" ng-app="myapp" ng-controller="mainController"
-        hm-pan="onHammer"
-        hm-pinch="onHammer"
-        hm-press="onHammer"
-        hm-rotate="onHammer"
-        hm-swipe="onHammer"
-        hm-tap="onHammer"
-        hm-doubletap="onHammer">
+    <div class="app" ng-app="myapp" ng-controller="mainController">
         <p class="navigation">
             <a ui-sref="main">1</a>
             <a ui-sref="main2">2</a>
         </p>
-            <div ui-view></div>
+            <div></div>
         <!--div ng-controller="myctrl" ng-swipe-right="swipeHandler($event)" ng-swipe-left="swipeHandler($event)">
         </div-->
-        <p>EVENT TYPE: {{ eventType }}</p>
+        <div id="p1" ui-view="p1"
+        hm-panleft="onHammer"
+        hm-panright="onHammer"
+        hm-panup="onHammer"
+        hm-pandown="onHammer"
+        hm-pinchin="onHammer"
+        hm-pinchout="onHammer"></div>
+        <div id="p2" ui-view="p2"
+        hm-swipe="onHammer2"
+        hm-press="onHammer2"
+        hm-tap="onHammer2"></div>
+        <h1>EVENT TYPE: {{ eventType }}</h1>
     </div>
   </body>
 

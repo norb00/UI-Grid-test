@@ -13,7 +13,7 @@ var myapp = angular.module('myapp', [
             'angularMoment'
 ]);
 
-    myapp.config(['$stateProvider', '$urlRouterProvider',
+/*    myapp.config(['$stateProvider', '$urlRouterProvider',
         function ($stateProvider,   $urlRouterProvider){
             $stateProvider.state('main', {
                 url: '/',
@@ -27,22 +27,56 @@ var myapp = angular.module('myapp', [
                 controllerAs: 'myctrl2'
             })
         }
+    ]);*/
+
+    myapp.config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider,   $urlRouterProvider){
+            $stateProvider.state('main', {
+                url: '/',
+                views: {
+                    'p1': {
+                        templateUrl: 'v1.html',
+                        controller: 'myctrl',
+                        controllerAs: 'myctrl'
+                    },
+                    'p2': {
+                        templateUrl: 'v2.html',
+                        controller: 'myctrl2',
+                        controllerAs: 'myctrl2'
+                    }
+                }
+            }).state('main2', {
+                url: '/2',
+                views: {
+                    'p1': {
+                        templateUrl: 'v1.html',
+                        controller: 'myctrl2',
+                        controllerAs: 'myctrl2'
+                    },
+                    'p2': {
+                        templateUrl: 'v2.html',
+                        controller: 'myctrl',
+                        controllerAs: 'myctrl'
+                    }
+                }
+            })
+        }
     ]);
-
     myapp.controller('mainController', function($scope, $state){
-        $scope.rightSwipeHandler = function($event){
-            $state.go('main');
-//            console.log("SWIPE: ", $event);
-        }
-
-        $scope.leftSwipeHandler = function($event){
-            $state.go('main2');
-//            console.log("SWIPE: ", $event);
-        }
+        $state.go('main');
 
         $scope.onHammer = function (event) {
+            console.log(event);
+            $state.go('main');
             $scope.eventType = event.type;
         };
+
+        $scope.onHammer2 = function (event) {
+            console.log(event);
+            $state.go('main2');
+            $scope.eventType = event.type;
+        };
+
     });
 
     myapp.controller('myctrl', function ($scope) {
