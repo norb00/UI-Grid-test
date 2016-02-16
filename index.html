@@ -3,50 +3,81 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>UI GRID TEST</title>
-        <link href="node_modules/angular-ui-grid/ui-grid.css" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" />
-        <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
-
-        <script src="data.js" ></script>
         <script src="http://code.jquery.com/jquery-latest.min.js" ></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="data.js" ></script>
         <script src="https://code.angularjs.org/1.4.9/angular.min.js" ></script>
         <script src="https://code.angularjs.org/1.4.9/angular-route.js"></script>
         <script src="https://code.angularjs.org/1.4.9/angular-animate.js"></script>
         <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
         <script src="node_modules/angular-touch/angular-touch.js"></script>
         <script src="node_modules/angular-moment/node_modules/moment/moment.js"></script>
         <script src="node_modules/angular-moment/angular-moment.js"></script>
         <script src="node_modules/hammerjs/hammer.js"></script>
         <script src="node_modules/angular-hammer/angular.hammer.js"></script>
         <script src="node_modules/hammerjs/touch-emulator.js"></script>
-        <script>
-            //TouchEmulator();
-        </script>
 
         <script src="app.js" ></script>
   </head>
   <body>
-    <div class="app" ng-app="myapp" ng-controller="mainController">
-        <p class="navigation">
-            <a ui-sref="main">1</a>
-            <a ui-sref="main2">2</a>
-        </p>
-            <div></div>
-        <!--div ng-controller="myctrl" ng-swipe-right="swipeHandler($event)" ng-swipe-left="swipeHandler($event)">
-        </div-->
-        <div id="p1" ui-view="p1"
-        hm-panleft="onHammer"
-        hm-panright="onHammer"
-        hm-panup="onHammer"
-        hm-pandown="onHammer"
-        hm-pinchin="onHammer"
-        hm-pinchout="onHammer"></div>
-        <div id="p2" ui-view="p2"
-        hm-swipe="onHammer2"
-        hm-press="onHammer2"
-        hm-tap="onHammer2"></div>
-        <h1>EVENT TYPE: {{ eventType }}</h1>
+    <div class="app container-fluid" ng-app="myapp" ng-controller="mainController" >
+        <div class="row">
+            <div class="col-xs-3 navigation"><a ng-click="setVisible('showp1')">1</a></div>
+            <div class="col-xs-3 navigation"><a ng-click="setVisible('showp2')">2</a></div>
+            <div class="col-xs-3 navigation"><a ng-click="setVisible('showp3')">3</a></div>
+            <div class="col-xs-3 navigation"><a ng-click="setVisible('showp4')">4</a>
+                <span id="menu">MENU</span>
+                <div class="menu">
+                    <ul>
+                        <li>Menu 1</li>
+                        <li>Menu 2</li>
+                        <li>Menu 3</li>
+                        <li>Menu 4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row c">
+            <div class="col-xs-12 cc"
+                hm-swipeup="hidePanel('showp3')"
+                hm-swipedown="setVisible('showp3')">
+                <span>Up/Down swipe</span>
+                <div id="p3" class="animate-show " ng-show="showp3">
+                <div class="content">UPPER
+                </div>
+                </div>
+            </div>
+        </div>
+         <div class="row c">
+            <div class="col-xs-6 cc"
+                hm-swipeleft="hidePanel('showp1')"
+                hm-swiperight="setVisible('showp1')">
+                <span>Left/Right swipe</span>
+                <div id="p1" class="animate-show " ng-show="showp1">
+                <div class="content">LEFT</div>
+                </div>
+            </div>
+            <div class="col-xs-6 cc"
+                hm-swiperight="hidePanel('showp2')"
+                hm-swipeleft="setVisible('showp2')">
+                <span>Left/Right swipe</span>
+                <div id="p2" class="animate-show " ng-show="showp2">
+                <div class="content">RIGHT</div>
+                </div>
+            </div>
+        </div>
+        <div class="row c">
+            <div class="col-xs-12 cc"
+                hm-swipedown="hidePanel('showp4')"
+                hm-swipeup="setVisible('showp4')">
+                <span>Up/Down swipe</span>
+                <div id="p4" class="animate-show " ng-show="showp4">
+                <div class="content">BOTTOM</div>
+                </div>
+            </div>
+        </div>
     </div>
   </body>
 

@@ -4,12 +4,6 @@ var myapp = angular.module('myapp', [
             'ngTouch',
             'hmTouchEvents',
             'ui.router',
-            'ui.grid',
-            'ui.grid.treeView',
-            'ui.grid.resizeColumns',
-            'ui.grid.moveColumns',
-            'ui.grid.pinning',
-            'ui.grid.saveState',
             'angularMoment'
 ]);
 
@@ -29,116 +23,48 @@ var myapp = angular.module('myapp', [
         }
     ]);*/
 
-    myapp.config(['$stateProvider', '$urlRouterProvider',
-        function ($stateProvider,   $urlRouterProvider){
-            $stateProvider.state('main', {
-                url: '/',
-                views: {
-                    'p1': {
-                        templateUrl: 'v1.html',
-                        controller: 'myctrl',
-                        controllerAs: 'myctrl'
-                    },
-                    'p2': {
-                        templateUrl: 'v2.html',
-                        controller: 'myctrl2',
-                        controllerAs: 'myctrl2'
-                    }
-                }
-            }).state('main2', {
-                url: '/2',
-                views: {
-                    'p1': {
-                        templateUrl: 'v1.html',
-                        controller: 'myctrl2',
-                        controllerAs: 'myctrl2'
-                    },
-                    'p2': {
-                        templateUrl: 'v2.html',
-                        controller: 'myctrl',
-                        controllerAs: 'myctrl'
-                    }
-                }
-            })
-        }
-    ]);
-    myapp.controller('mainController', function($scope, $state){
-        $state.go('main');
+    myapp.controller('mainController', ['$scope', function($scope){
 
-        $scope.onHammer = function (event) {
-            console.log(event);
-            $state.go('main');
-            $scope.eventType = event.type;
+        $scope.onHammerLeft = function (event) {
+            $scope.showp2 = true;
+            console.log($scope.showp1);
+            console.log($scope.showp2);
+            console.log($scope.showp3);
+            console.log($scope.showp4);
         };
 
-        $scope.onHammer2 = function (event) {
+        $scope.onHammerRight = function (event) {
+            $scope.showp1 = true;
+            console.log($scope.showp1);
+            console.log($scope.showp2);
+            console.log($scope.showp3);
+            console.log($scope.showp4);
+        };
+        $scope.onHammerUp = function (event) {
             console.log(event);
-            $state.go('main2');
-            $scope.eventType = event.type;
+            $scope.showp4 = true;
+            console.log($scope.showp1);
+            console.log($scope.showp2);
+            console.log($scope.showp3);
+            console.log($scope.showp4);
+        };
+        $scope.onHammerDown = function (event) {
+            $scope.showp3 = true;
+            console.log($scope.showp1);
+            console.log($scope.showp2);
+            console.log($scope.showp3);
+            console.log($scope.showp4);
         };
 
-    });
-
-    myapp.controller('myctrl', function ($scope) {
-
-    $scope.actualSeries = 0;
-
-    $scope.gridOptions = {
-        columnDefs: [
-          {field: 'date', displayName: 'Date'},
-          {field: 'value', displayName: 'Value'}
-        ]
-      };
-
-    $scope.myData = [
-        {
-            "firstName": "Cox",
-            "lastName": "Carney",
-            "company": "Enormo",
-            "employed": true
-        },
-        {
-            "firstName": "Lorraine",
-            "lastName": "Wise",
-            "company": "Comveyer",
-            "employed": false
-        },
-        {
-            "firstName": "Nancy",
-            "lastName": "Waters",
-            "company": "Fuelton",
-            "employed": false
+        $scope.setVisible = function (panel) {
+              $scope[panel] = true;
         }
-    ];
 
-    $scope.myData2 = data_real;
+        $scope.hidePanel = function (panel, $event) {
+            console.log(panel, $event);
+            $scope[panel] = false;
+        }
 
-});
+    }]);
 
-myapp.controller('myctrl2', ['$scope', function ($scope) {
 
-  $scope.myData2 = [
-    {
-        "firstName": "Cox",
-        "lastName": "Carney",
-        "company": "Enormo",
-        "employed": true
-    },
-    {
-        "firstName": "Lorraine",
-        "lastName": "Wise",
-        "company": "Comveyer",
-        "employed": false
-    },
-    {
-        "firstName": "Nancy",
-        "lastName": "Waters",
-        "company": "Fuelton",
-        "employed": false
-    }
-];
-}]);
-
-function formatDate(s){
-    return s.toLocaleDateString('en-US');
-}

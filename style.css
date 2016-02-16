@@ -11,43 +11,117 @@ and open the template in the editor.
 body {
     margin: 0;
     padding: 0;
+    background: #5c5c5c;
 }
 
 div.app {
-    height: 768px;
-    width: 1024px;
     background: #5c5c5c;
+    width: 1024px;
+    height: 680px;
     display: block;
-    position: relative;
 }
 
-p.navigation a {
-    width: 500px;
-    background: #66afe9;
-    display: inline-block;
-    margin: 5px;
+div.row.c {
+    height: 200px;
+    border: 1px solid #fdfdfd;
+    padding: 0;
+    overflow: hidden;
+}
+div.row {
+    overflow: hidden;
+}
+
+div.cc {
+    height: 100%;
+    padding: 0;
+    position: relative;
     text-align: center;
 }
 
+div.cc span{
+    position: absolute;
+    z-index: 1001;
+}
 
+div.content{
+    height: 100%;
+    width: 100%;
+      padding: 80px auto 80px auto;
+      text-align: center;
+      font-size: 36px;
+      padding-top: 70px;
+}
+
+.navigation {
+    background: #66afe9;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+
+.navigation a{
+    font-size: 24px;
+    color: #ffffff;
+}
 h1 {
     color: #ffffff;
     clear: left;
     display: block;
 }
 
-div#p1 {
-    width: 500px;
-    background: #fdfdfd;
+.animate-show {
+    height: 100%;
+    margin: 0;
     display: block;
-    float: left;
-    margin: 5px;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+  transition:all linear 0.4s;
+  -webkit-transition:all linear 0.4s;
+  -moz-transition:all linear 0.4s;
+  -o-transition:all linear 0.4s;
+    z-index: 1000;
 }
 
-div#p2 {
-    width: 500px;
-    background: #d4d4d4;
-    display: block;
-    float: left;
-    margin: 5px;
+#p2 {
+    position: absolute;
+    width: 100%;
+}
+
+.animate-show div {
+  background: #fdfdfd;
+  margin: 5px;
+  border: 1px solid black;
+  margin: 0;
+}
+
+#p1.animate-show.ng-hide {
+  transform: translateX(-400px);
+  -webkit-transform: translateX(-400px);
+  -moz-transform: translateX(-400px);
+  -o-transform: translateX(-400px);
+}
+#p2.animate-show.ng-hide {
+  transform: translateX(300px);
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -o-transform: translateX(300px);
+}
+#p3.animate-show.ng-hide {
+  transform: translateY(-300px);
+  -webkit-transform: translateY(-300px);
+  -moz-transform: translateY(-300px);
+  -o-transform: translateY(-300px);
+}
+#p4.animate-show.ng-hide {
+  transform: translateY(300px);
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -o-transform: translateY(300px);
+}
+
+div.menu {
+    position: absolute;
+    z-index: 1005;
 }
